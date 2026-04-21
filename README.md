@@ -237,16 +237,6 @@ The `cdhit_c` setting controls how similar sequences must be to be grouped toget
 
 ---
 
-## Citation
-
-If you use EffectorHunt in your research, please cite:
-
-```
-Deepbendu Das (2025). EffectorHunt: Iterative RXLR Effector Motif Prediction Pipeline.
-GitHub. https://github.com/computational-genomics-lab/EffectorHunt.git
-```
-
----
 
 ## License
 
