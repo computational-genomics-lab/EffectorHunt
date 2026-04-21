@@ -15,14 +15,28 @@
 
 *Phytophthora* RXLR effector proteins evolve rapidly to evade plant immunity and are often missed by standard searches like BLAST. EffectorHunt finds them by building statistical fingerprints (Hidden Markov Models) from known effector sequences and repeatedly scanning a genome database — adding newly discovered proteins to the search pool each round until no new effectors are found (convergence).
 
-```
-Seed FASTA ──► CD-HIT ──► ClustalW ──► hmmbuild ──► hmmsearch ──► New hits
-                                                                       │
-                          ◄──────── feed back as new seed if changed ◄─┘
-                                      stop if nothing changed (converged)
-```
 
----
+```
+Seed FASTA
+    │
+    ▼
+ CD-HIT ──► Cluster sequences by identity
+    │
+    ▼
+ClustalW ──► Align each cluster
+    │
+    ▼
+hmmbuild ──► Build a statistical HMM fingerprint per cluster
+    │
+    ▼
+hmmsearch ──► Scan the genome database for matches
+    │
+    ▼
+New hits FASTA
+    │
+    └──► Same as before? ──► STOP (converged)
+         Different?      ──► Feed back as new seed (next iteration)
+```
 
 ## What is in this repository?
 
